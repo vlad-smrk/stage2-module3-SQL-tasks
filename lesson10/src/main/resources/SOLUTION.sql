@@ -1,0 +1,2 @@
+SELECT * FROM Subject WHERE id = (SELECT subject_id FROM (SElECT subject_id, AVG(mark) AS average_mark FROM Mark GROUP BY student_id) AS Averages WHERE average_mark = (SELECT MAX(average_mark) FROM Averages));
+SELECT student_id FROM (SELECT student_id, SUM(amount) AS total_paid FROM Payment GROUP BY student_id) AS Totals WHERE total_paid < (SELECT AVG(total_paid) FROM Totals);
