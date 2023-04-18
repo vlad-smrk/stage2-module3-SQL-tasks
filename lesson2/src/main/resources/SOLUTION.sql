@@ -1,4 +1,4 @@
-INSERT INTO Student (name, grade) VALUES ("John", 1), ("Chris", 1), ("Carl", 1), ("Oliver", 2), ("James", 2), ("Lucas", 2), ("Henry", 2), ("Jacob", 3), ("Logan", 3), ("Albert", 4), ("Betty", 5);
+INSERT INTO Student (name, groupnumber) VALUES ("John", 1), ("Chris", 1), ("Carl", 1), ("Oliver", 2), ("James", 2), ("Lucas", 2), ("Henry", 2), ("Jacob", 3), ("Logan", 3), ("Albert", 4), ("Betty", 5);
 INSERT INTO Subject (name, grade) VALUES ("Art", 1), ("Music", 1), ("Geography", 2), ("History", 2), ("PE", 3), ("Math", 3), ("Science", 4), ("IT", 4), ("Literature", 5), ("Biology", 5);
 INSERT INTO PaymentType (name) VALUES ("DAILY"), ("WEEKLY"), ("MONTHLY");
 CREATE PROCEDURE InsertPayment @name varchar(63), @type varchar(63) AS INSERT INTO Payment (amount, student_id, type_id) VALUES ((SELECT id FROM Student WHERE name = @name), (SELECT id FROM PaymentType WHERE name = @type)) GO;
